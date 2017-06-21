@@ -4,7 +4,7 @@ app.config(['$urlRouterProvider', '$stateProvider', '$locationProvider',
     function ($urlRouterProvider, $stateProvider, $locationProvider) {
 
         var debug = false;
-        var rootUrl = debug ? 'http://localhost:3564' : 'http://api.gabeandmandee.com';
+        var rootUrl = debug ? 'http://localhost:3564' : 'http://api.myweddingregistry.com';
         $stateProvider.state('main', {
             abstract: true,
             url: '/',

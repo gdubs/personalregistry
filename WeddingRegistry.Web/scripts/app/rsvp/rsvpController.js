@@ -89,7 +89,7 @@ app.controller('rsvpController', function ($scope, $http, $state, $stateParams, 
                 
             }
             $scope.message.type = 'success';
-            $scope.message.message = 'Thank you for submitting your RSVP. If you have any questions please send us a message at info@gabeandmandee.com';
+            $scope.message.message = 'Thank you for submitting your RSVP. If you have any questions please send us a message at info@myweddingregistry.com';
         }).catch(function onError(response) {
             $scope.message.type = 'error';
             $scope.message.message = response.data;

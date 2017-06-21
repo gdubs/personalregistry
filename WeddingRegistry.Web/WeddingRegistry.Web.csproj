@@ -305,8 +305,6 @@
     <Content Include="Content\assets\sass\material-kit\_variables_bootstrap.scss" />
     <Content Include="Content\assets\sass\material-kit\_welljumbo.scss" />
     <Content Include="package.json" />
-    <None Include="Properties\PublishProfiles\gabeandmandee.pubxml" />
-    <None Include="Properties\PublishProfiles\weddingregistry.web.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -342,6 +340,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\" />
+    <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

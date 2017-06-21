@@ -5,7 +5,7 @@
     $scope.submitEmail = function () {
         $http({
             method: 'POST',
-            url: 'http://api.gabeandmandee.com/api/interest',
+            url: 'http://api.myweddingregistry.com/api/interest',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             data: $.param({
                 Email: $scope.email,
