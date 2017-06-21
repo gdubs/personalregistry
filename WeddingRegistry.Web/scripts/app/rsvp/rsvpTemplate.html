@@ -1,0 +1,175 @@
+﻿<div class="container">
+    <div class="row text-center">
+        <h2>RSVP</h2>
+        <h4>
+            Please search by entering first name, last name as spelled on the invitation you received. For
+
+            multiple name invitations, please search the first name addressed on the invitation. 
+            (eg. Mr. + Mrs. <b>Gabriel Rubrico</b>, Nikki, Judy).
+        </h4>
+        <h4>
+            (Additional tip: You can search using the first few letters of the first name and last name. 
+            (eg. <b>Am</b>anda <b>Na</b>sh.)
+        </h4>
+    </div>
+</div>
+<div class="container" ng-show="guests.length < 1 && !searched">
+    <div class="alert alert-success" ng-if="(message.type == 'success')">
+        <div class="container-fluid">
+            <div class="alert-icon">
+                <i class="material-icons">error_outline</i>
+            </div>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close" ng-click="clearErrorMessage()">
+                <span aria-hidden="true"><i class="material-icons">clear</i></span>
+            </button>
+            <b>Alert:</b> {{message.message}}
+        </div>
+    </div>
+    <form name="searchForm" ng-submit="findByName(searchForm.$valid)" ng-if="!selectedGuest.id">
+        <div class="row text-center">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <input type="text" value="" placeholder="Please type in First Name" name="firstName" class="form-control" ng-model="guestSearch.firstName" required/>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <input type="text" value="" placeholder="Please type in Last Name" name="lastName" class="form-control" ng-model="guestSearch.lastName" required/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <button class="btn btn-primary btn-round" type="submit" ng-disabled="searchForm.$invalid">
+                <i class="material-icons">search</i> Search By Name
+            </button>
+        </div>
+    </form>
+    <!--<div class="row">
+        <h2>OR</h2>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <input type="text" value="" placeholder="Code" class="form-control" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <button class="btn btn-primary btn-round" ng-click="findByCode()">
+            <i class="material-icons">search</i> Search by Code
+        </button>
+    </div>-->
+</div>
+<div class="row" ng-show="searched">
+    <div class="row">
+        <h2>Search Result</h2>
+    </div>
+    <div class="row">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="text-center">Name</th>
+                    <th class="text-center">Total Plus Ones</th>
+                    <th class="text-center">RSVP'd?</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="guest in guests" ng-show="guests.length > 0">
+                    <td class="text-center">{{guest.firstName}} {{guest.lastName}}</td>
+                    <td class="text-center">{{guest.additionalGuest}}</td>
+                    <td class="td-actions text-center">
+                        <button ng-if="!guest.rsvp" 
+                                class="btn btn-primary btn-xs" 
+                                rel="tooltip" 
+                                title="Respond" 
+                                type="button" 
+                                data-placement="bottom" 
+                                data-html="true"
+                                ng-click="selectGuest(guest)">
+                            <i class="material-icons">person</i> Respond
+                        </button>
+                        <span  class="label label-success" ng-if="guest.rsvp">Responded</span>
+                    </td>
+                </tr>
+                <tr ng-show="guests.length < 1">
+                    <td colspan="3">
+                        No results found
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="row">
+        <button class="btn btn-primary btn-round" ng-click="resetResults()">
+            <i class="material-icons">find_replace</i> Back to Search
+        </button>
+    </div>
+</div>
+<div class="container" ng-if="selectedGuest.id">
+    <div class="row">
+        <h4>Hi {{selectedGuest.firstName}} {{selectedGuest.lastName}}</h4>
+    </div>
+    <div class="row"  ng-if="(message.type == 'error')">
+        <div class="alert alert-danger">
+            <div class="container-fluid">
+                <div class="alert-icon">
+                    <i class="material-icons">error_outline</i>
+                </div>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close" ng-click="clearErrorMessage()">
+                    <span aria-hidden="true"><i class="material-icons">clear</i></span>
+                </button>
+                <b>Error Alert:</b> {{message.message}}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <h4>
+            Will you be able to come?
+        </h4>
+        <div class="col-md-12">
+            <button class="btn btn-round" ng-class="{ 'btn-info' : selectedGuest.attending && selectedGuest.answered, 'btn-success' : !selectedGuest.answered}" ng-click="selectedGuest.attending = true; selectedGuest.answered = true;">
+                <i class="material-icons">sentiment_very_satisfied</i> Yes!
+            </button>
+            <button class="btn btn-round" ng-class="{ 'btn-info' : !selectedGuest.attending && selectedGuest.answered, 'btn-warning' : !selectedGuest.answered}" ng-click="selectedGuest.attending = false; selectedGuest.answered = true;">
+                <i class="material-icons">sentiment_very_dissatisfied</i> No
+            </button>
+        </div>
+    </div>
+    <div class="row" >
+        <div class="form-group label-floating" ng-show="selectedGuest.attending">
+            <label class="control-label">Please confirm additional guests</label>
+            <input type="number" value=""
+                    placeholder="Additional guests"
+                    name="confirmedGuests"
+                    class="form-control" ng-model="selectedGuest.confirmedGuests" required />
+        </div>
+        <div class="form-group">
+            <textarea class="form-control"
+                        placeholder="Leave us a note here! eg: dietary restrictions, special requests, etc "
+                        rows="4"
+                        name="note"
+                        ng-model="selectedGuest.note"></textarea>
+        </div>
+
+        <div>
+            <button class="btn btn-primary btn-xs" rel="tooltip"
+                    title="RSVP"
+                    type="button"
+                    data-placement="bottom"
+                    data-html="true"
+                    ng-click="rsvp()">
+                <i class="material-icons">event</i> Send RSVP
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <button class="btn btn-primary btn-round" ng-click="resetResults()">
+            <i class="material-icons">find_replace</i> Back to Search
+        </button>
+    </div>
+</div>
+<div class="row">
+    <h4>
+        If you have any questions or concerns, please send us an email to info@gabeandmandee.com
+    </h4>
+</div>

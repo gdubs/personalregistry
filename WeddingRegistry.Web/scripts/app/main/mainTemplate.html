@@ -1,0 +1,85 @@
+﻿<div class="section section-basic">
+    <div class="container">
+        <div class="row">
+            <!--<div class="col-md-12">
+                <div class="card card-nav-tabs">
+                    <div class="header header-success">
+                        <div class="nav-tabs-navigation">
+                            <div class="nav-tabs-wrapper">
+                                <ul class="nav nav-tabs" data-tabs="tabs">
+                                    <li class="active">
+                                        <a href="" data-toggle="tab" aria-expanded="true">
+                                            <i class="material-icons">
+                                                face
+                                            </i>
+                                            Profile
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" data-toggle="tab" aria-expanded="true">
+                                            <i class="material-icons">
+                                                event_seat
+                                            </i>
+                                            RSVP
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" data-toggle="tab" aria-expanded="true">
+                                            <i class="material-icons">
+                                                card_giftcard
+                                            </i>
+                                            Registry
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <div class="tab-content text-center">
+                            <div ui-view></div>
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+            <div class="col-md-12">
+                <div class="nav-align-center">
+                    <ul class="nav nav-pills" role="tablist">
+                        <!--
+                color-classes: "nav-pills-primary", "nav-pills-info", "nav-pills-success", "nav-pills-warning","nav-pills-danger"
+            -->
+                        <li ng-class="activeTab == '' ? 'active' : ''">
+                            <a href="" data-toggle="tab" aria-expanded="true" ng-click="gotoMainIndex()">
+                                <i class="material-icons">
+                                    wc
+                                </i>
+                                About
+                            </a>
+                        </li>
+                        <li ng-class="activeTab == 'rsvp' ? 'active' : ''">
+                            <a href="" data-toggle="tab" aria-expanded="true" ng-click="gotoRsvp()">
+                                <i class="material-icons">
+                                    event_seat
+                                </i>
+                                RSVP
+                            </a>
+                        </li>
+                        <li ng-class="activeTab == 'registry' ? 'active' : ''">
+                            <a href="" data-toggle="tab" aria-expanded="true" ng-click="gotoRegistry()">
+                                <i class="material-icons">
+                                    card_giftcard
+                                </i>
+                                Registry
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="content">
+                    <div class="tab-content text-center" style="min-height:500px;">
+                        <div ui-view></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

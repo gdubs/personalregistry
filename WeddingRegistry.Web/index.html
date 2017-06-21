@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <base href="/">
+    <title></title>
+	<meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+
+    <!-- bootstrap -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+
+    <!--<script src="scripts/theme/jquery.min.js"></script>
+    <script src="scripts/theme/material.min.js"></script>-->
+    <!--<script src="scripts/bootstrap/bootstrap.min.js"></script>
+    <script src="scripts/uibootstrap/ui-bootstrap-tpls-2.5.0.min.js"></script>-->
+
+    <link href="Content/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/assets/css/demo.css" rel="stylesheet" />
+    <link href="Content/assets/css/material-kit.css" rel="stylesheet" />
+
+
+</head>
+<body id="app" ng-app="app" class="index-page">
+    <nav class="navbar navbar-transparent navbar-fixed-top navbar-color-on-scroll">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-index">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#">
+                    <div class="logo-container">
+                        <!--<div class="logo">-->
+                            <!--<img src="Content/img/logo.png" alt="Creative Tim Logo" rel="tooltip" title="<b>Material Kit</b> was Designed & Coded with care by the staff from <b>Creative Tim</b>" data-placement="bottom" data-html="true">-->
+                            <span class="label label-primary">info@gabeandmandee.com</span>
+                        <!--</div>-->
+                        <!--<div class="brand">
+                            
+                        </div>-->
+                    </div>
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navigation-index">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">
+                            <i class="material-icons">apps</i> Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/#/interest">
+                            <i class="material-icons">unarchive</i> What do you think?
+                        </a>
+                    </li>
+
+                    <!--<li>
+                        <a rel="tooltip" title="Follow us on Twitter" data-placement="bottom" href="https://twitter.com/CreativeTim" target="_blank" class="btn btn-white btn-simple btn-just-icon">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a rel="tooltip" title="Like us on Facebook" data-placement="bottom" href="https://www.facebook.com/CreativeTim" target="_blank" class="btn btn-white btn-simple btn-just-icon">
+                            <i class="fa fa-facebook-square"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a rel="tooltip" title="Follow us on Instagram" data-placement="bottom" href="https://www.instagram.com/CreativeTimOfficial" target="_blank" class="btn btn-white btn-simple btn-just-icon">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                    </li>-->
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="wrapper" >
+        <div class="header header-filter" style="background-image: url('Content/img/gm1.jpg');">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="brand">
+                            <h1 style="font-weight:100;">Gabe <span style="font-weight:800;color:#449668;">+</span> Mandee</h1>
+                            <h3>Wheeling, WV | April 8, 2017</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main main-raised">
+            <div ui-view>
+
+            </div>
+            <!--<div class="section section-basic">
+                <table ng-repeat="guest in guests">
+                    <tr>
+                        <td>{{guest}}</td>
+                    </tr>
+                </table>
+            </div>-->
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            If you have any questions, feel free to send us an email at <span class="label label-primary">info@gabeandmandee.com</span>
+        </div>
+    </footer>
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.2/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.2/angular-animate.min.js"></script>
+
+
+<script src="Content/assets/js/jquery.min.js"></script>
+<script src="Content/assets/js/bootstrap.min.js"></script>
+<script src="Content/assets/js/material.min.js"></script>
+<script src="Content/assets/js/material-kit.js"></script>
+
+<script src="scripts/app/appConfig.js"></script>
+<script src="scripts/app/main/mainController.js"></script>
+<script src="scripts/app/mainIndex/mainIndexController.js"></script>
+<script src="scripts/app/manage/manageController.js"></script>
+<script src="scripts/app/registry/registryController.js"></script>
+<script src="scripts/app/rsvp/rsvpController.js"></script>
+<script src="scripts/app/rsvpResult/rsvpResultController.js"></script>
+<script src="scripts/app/interest/interestController.js"></script>
+
+
+</html>
